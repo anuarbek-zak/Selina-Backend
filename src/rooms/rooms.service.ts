@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room, RoomDocument } from './entities/room.entity';
+import { Schema as MongooseSchema } from 'mongoose';
 
 @Injectable()
 export class RoomsService {
@@ -27,5 +28,12 @@ export class RoomsService {
 
   remove(id: number) {
     return `This action removes a #${id} room`;
+  }
+
+  book(id) {
+    this.roomModel.updateOne(
+      { _id: id }, 
+      { $set: {booked: true} }
+    );
   }
 }
