@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { RoomsService } from './rooms.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
-import * as mongoose from 'mongoose';
+import {Types} from 'mongoose';
 
 @Controller('rooms')
 export class RoomsController {
@@ -35,6 +35,6 @@ export class RoomsController {
 
   @Get('book/:id')
   book(@Param('id') id: string) {
-    return this.roomsService.book(id);
+    return this.roomsService.book(new Types.ObjectId(id));
   }
 }
