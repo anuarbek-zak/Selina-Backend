@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Query, Delete } from '@nestjs/common';
 import { RoomTypesService } from './room-types.service';
 import { CreateRoomTypeDto } from './dto/create-room-type.dto';
 import { UpdateRoomTypeDto } from './dto/update-room-type.dto';
+import { Types } from 'mongoose';
 
 @Controller('room-types')
 export class RoomTypesController {
@@ -15,6 +16,11 @@ export class RoomTypesController {
   @Get()
   findAll() {
     return this.roomTypesService.findAll();
+  }
+
+  @Get('available')
+  getAvailable(@Query('locationID') locationID: string) {
+    return this.roomTypesService.getAvailable(new Types.ObjectId(locationID));
   }
 
   @Get(':id')

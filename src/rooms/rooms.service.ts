@@ -4,7 +4,7 @@ import { Model } from 'mongoose';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room, RoomDocument } from './entities/room.entity';
-import {Types} from 'mongoose';
+import {Types, Query} from 'mongoose';
 
 @Injectable()
 export class RoomsService {
@@ -39,5 +39,9 @@ export class RoomsService {
       await room.save();
       return {message: 'Thank you for booking!'}
     }
+  }
+
+  getAvailable(locationID): Query<any, any> {
+    return this.roomModel.find({locationID: locationID, bookedBy: null});
   }
 }
