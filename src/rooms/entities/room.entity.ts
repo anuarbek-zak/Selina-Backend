@@ -14,13 +14,13 @@ export class Room {
   locationID: Location;
 
   @Prop()
+  bookedBy: string;
+
+  @Prop()
   startAvailDate: Date;
 
   @Prop()
   endAvailDate: Date;
-
-  @Prop()
-  booked: boolean;
 }
 
 export const RoomSchema = SchemaFactory.createForClass(Room);

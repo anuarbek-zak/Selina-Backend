@@ -31,9 +31,13 @@ export class RoomsService {
   }
 
   async book(id: Types.ObjectId) {
-    await this.roomModel.updateOne(
-      { _id: id }, 
-      { $set: {booked: true} }
-    );
+    const room = await this.roomModel.findById(id);
+    if(room.bookedBy) {
+      return {message: 'This room is no longer available.'}
+    } else {
+      room.bookedBy = 'user_id_here';
+      await room.save();
+      return {message: 'Thank you for booking!'}
+    }
   }
 }

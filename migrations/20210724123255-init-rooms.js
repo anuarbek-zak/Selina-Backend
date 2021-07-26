@@ -9,7 +9,7 @@ module.exports = {
             db.collection('rooms').insertOne({
               locationID: location._id,
               typeID: roomType._id,
-              booked: Math.random() < 0.4,
+              bookedBy: Math.random() < 0.4 ? null : 'user_id_here',
               startAvailDate: new Date(2021,6,20+i),
               endAvailDate: new Date(2021,6,21+i),
             });
