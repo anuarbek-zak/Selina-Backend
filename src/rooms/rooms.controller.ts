@@ -3,6 +3,7 @@ import { RoomsService } from './rooms.service';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import {Types} from 'mongoose';
+import { Room } from './entities/room.entity';
 
 @Controller('rooms')
 export class RoomsController {
@@ -14,7 +15,7 @@ export class RoomsController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<Room[]> {
     return this.roomsService.findAll();
   }
 

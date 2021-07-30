@@ -14,7 +14,7 @@ export class RoomsService {
     return 'This action adds a new room';
   }
 
-  async findAll() {
+  async findAll(): Promise<Room[]> {
     return this.roomModel.find().exec();
   }
 
@@ -41,7 +41,7 @@ export class RoomsService {
     }
   }
 
-  getAvailable(locationID): Query<any, any> {
+  getAvailable(locationID): Query<RoomDocument[], RoomDocument>{
     return this.roomModel.find({locationID: locationID, bookedBy: null});
   }
 }

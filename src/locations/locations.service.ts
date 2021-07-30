@@ -13,8 +13,12 @@ export class LocationsService {
     return 'This action adds a new location';
   }
 
-  async findAll(): Promise<LocationDocument[]> {
-    return this.locationModel.find().exec();
+  async findAll(sort:string, filter: string): Promise<LocationDocument[]> {
+    let filterObj = {};
+    if (filter) {
+      filterObj = {country: { $regex: filter, $options: 'i'}}
+    }
+    return this.locationModel.find(filterObj).sort({ country: sort }).exec();
   }
 
   findOne(id: number) {

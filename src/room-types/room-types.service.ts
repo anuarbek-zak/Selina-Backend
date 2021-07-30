@@ -1,10 +1,11 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateRoomTypeDto } from './dto/create-room-type.dto';
 import { UpdateRoomTypeDto } from './dto/update-room-type.dto';
 import { RoomType, RoomTypeDocument } from './entities/room-type.entity';
 import { RoomsService } from '../rooms/rooms.service';
+import { Types } from 'mongoose';
 
 @Injectable()
 export class RoomTypesService {
@@ -17,7 +18,7 @@ export class RoomTypesService {
     return 'This action adds a new roomType';
   }
 
-  async findAll() {
+  async findAll(): Promise<RoomTypeDocument[]> {
     return this.roomTypeModel.find().exec();
   }
 
@@ -33,8 +34,13 @@ export class RoomTypesService {
     return `This action removes a #${id} roomType`;
   }
 
-  async getAvailable(locationID) {
-    const availRoomTypesIDs = await this.roomsService.getAvailable(locationID).distinct('typeID');
-    return this.roomTypeModel.find({ '_id': { $in: availRoomTypesIDs }});
+  async getAvailable(locationID: Types.ObjectId): Promise<RoomTypeDocument[]> {
+    try {
+      const availRoomTypesIDs = await this.roomsService.getAvailable(locationID).distinct('typeID');
+      return this.roomTypeModel.find({ '_id': { $in: availRoomTypesIDs }});
+    } catch (error) {
+      throw new NotFoundException('Wrong location id')
+    }
+    return [];
   }
 }

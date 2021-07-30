@@ -3,6 +3,7 @@ import { RoomTypesService } from './room-types.service';
 import { CreateRoomTypeDto } from './dto/create-room-type.dto';
 import { UpdateRoomTypeDto } from './dto/update-room-type.dto';
 import { Types } from 'mongoose';
+import { RoomTypeDocument } from './entities/room-type.entity';
 
 @Controller('room-types')
 export class RoomTypesController {
@@ -14,12 +15,12 @@ export class RoomTypesController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<RoomTypeDocument[]> {
     return this.roomTypesService.findAll();
   }
 
   @Get('available')
-  getAvailable(@Query('locationID') locationID: string) {
+  getAvailable(@Query('locationID') locationID: string): Promise<RoomTypeDocument[]> {
     return this.roomTypesService.getAvailable(new Types.ObjectId(locationID));
   }
 
