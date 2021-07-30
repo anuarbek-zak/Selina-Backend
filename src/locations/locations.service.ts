@@ -13,7 +13,7 @@ export class LocationsService {
     return 'This action adds a new location';
   }
 
-  async findAll() {
+  async findAll(): Promise<LocationDocument[]> {
     return this.locationModel.find().exec();
   }
 

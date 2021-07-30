@@ -25,9 +25,11 @@ describe('LocationsController', () => {
 
     controller = module.get<LocationsController>(LocationsController);
     service = module.get<LocationsService>(LocationsService);
+
+    jest.clearAllMocks();
   });
 
-  it('should be defined', () => {
+  it('LocationsController should be defined', () => {
     expect(controller).toBeDefined();
   });
 
