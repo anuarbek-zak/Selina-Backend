@@ -19,7 +19,7 @@ let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [mongoose_1.MongooseModule.forRoot('mongodb+srv://Anuarbek:12345@selina.svf8o.mongodb.net/selina_backend?retryWrites=true&w=majority'), rooms_module_1.RoomsModule, locations_module_1.LocationsModule, room_types_module_1.RoomTypesModule, activities_module_1.ActivitiesModule],
+        imports: [mongoose_1.MongooseModule.forRoot('mongodb+srv://Anuarbek:12345@cluster0.svf8o.mongodb.net/selina?retryWrites=true&w=majority'), rooms_module_1.RoomsModule, locations_module_1.LocationsModule, room_types_module_1.RoomTypesModule, activities_module_1.ActivitiesModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
