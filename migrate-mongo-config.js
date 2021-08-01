@@ -3,7 +3,7 @@
 const config = {
   mongodb: {
     // TODO Change (or review) the url to your MongoDB:
-    url: "mongodb://localhost:27017",
+    url: "mongodb+srv://Anuarbek:12345@cluster0.svf8o.mongodb.net",
 
     // TODO Change this to your database name:
     databaseName: "selina",
