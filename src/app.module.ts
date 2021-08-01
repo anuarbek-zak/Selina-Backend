@@ -8,7 +8,7 @@ import { RoomTypesModule } from './room-types/room-types.module';
 import { ActivitiesModule } from './activities/activities.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/selina'), RoomsModule, LocationsModule, RoomTypesModule, ActivitiesModule],
+  imports: [MongooseModule.forRoot('mongodb+srv://Anuarbek:12345@selina.svf8o.mongodb.net/selina_backend?retryWrites=true&w=majority'), RoomsModule, LocationsModule, RoomTypesModule, ActivitiesModule],
   controllers: [AppController],
   providers: [AppService],
 })
