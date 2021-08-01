@@ -39,6 +39,7 @@ export class RoomsController {
     return this.roomsService.remove(+id);
   }
 
+  // should be @Patch, but use @Get only for home assignment
   @Get('book/:id')
   book(@Param('id') id: string) {
     return this.roomsService.book(new Types.ObjectId(id));
