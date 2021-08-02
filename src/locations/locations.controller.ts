@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
-import { LocationsService } from './locations.service';
+import { LocationsService, LocationWithCount } from './locations.service';
 import { CreateLocationDto } from './dto/create-location.dto';
 import { UpdateLocationDto } from './dto/update-location.dto';
 import { LocationDocument } from './entities/location.entity';
@@ -19,6 +19,11 @@ export class LocationsController {
     @Query('filter') filter?: string,
   ): Promise<LocationDocument[]> {
     return this.locationsService.findAll(sort, filter);
+  }
+
+  @Get('/top-three')
+  findTopThree(@Param('id') id: string): Promise<LocationWithCount[]>{
+    return this.locationsService.findTopThree();
   }
 
   @Get(':id')

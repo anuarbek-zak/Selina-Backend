@@ -27,6 +27,9 @@ let LocationsController = class LocationsController {
     findAll(sort, filter) {
         return this.locationsService.findAll(sort, filter);
     }
+    findTopThree(id) {
+        return this.locationsService.findTopThree();
+    }
     findOne(id) {
         return this.locationsService.findOne(+id);
     }
@@ -52,6 +55,13 @@ __decorate([
     __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", Promise)
 ], LocationsController.prototype, "findAll", null);
+__decorate([
+    common_1.Get('/top-three'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], LocationsController.prototype, "findTopThree", null);
 __decorate([
     common_1.Get(':id'),
     __param(0, common_1.Param('id')),

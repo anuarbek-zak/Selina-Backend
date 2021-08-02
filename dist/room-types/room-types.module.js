@@ -17,7 +17,10 @@ let RoomTypesModule = class RoomTypesModule {
 };
 RoomTypesModule = __decorate([
     common_1.Module({
-        imports: [rooms_module_1.RoomsModule, mongoose_1.MongooseModule.forFeature([{ name: room_type_entity_1.RoomType.name, schema: room_type_entity_1.RoomTypeSchema }])],
+        imports: [
+            rooms_module_1.RoomsModule,
+            mongoose_1.MongooseModule.forFeature([{ name: room_type_entity_1.RoomType.name, schema: room_type_entity_1.RoomTypeSchema }])
+        ],
         controllers: [room_types_controller_1.RoomTypesController],
         providers: [room_types_service_1.RoomTypesService],
     })

@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoomsService = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
-const mongoose_2 = require("mongoose");
 const room_entity_1 = require("./entities/room.entity");
+const mongoose_2 = require("mongoose");
 let RoomsService = class RoomsService {
     constructor(roomModel) {
         this.roomModel = roomModel;
@@ -49,6 +49,9 @@ let RoomsService = class RoomsService {
     }
     getAvailable(locationID) {
         return this.roomModel.find({ locationID: locationID, bookedBy: null });
+    }
+    getAggregated() {
+        return this.roomModel.aggregate();
     }
 };
 RoomsService = __decorate([

@@ -2,7 +2,10 @@ module.exports = {
   async up(db, client) {
     await db.collection('locations').insertMany([
       {country: 'Mexico', city: 'Cancun'},
-      {country: 'Kazakhstan', city: 'Almaty'}
+      {country: 'Kazakhstan', city: 'Almaty'},
+      {country: 'Israel', city: 'Jerusalem'},
+      {country: 'Nicaragua', city: 'Granada'},
+      {country: 'Guatemala', city: 'Antigua'},
     ]);
   },
 

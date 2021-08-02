@@ -1,8 +1,7 @@
-import { Model } from 'mongoose';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room, RoomDocument } from './entities/room.entity';
-import { Types, Query } from 'mongoose';
+import { Types, Query, Model } from 'mongoose';
 export declare class RoomsService {
     private roomModel;
     constructor(roomModel: Model<RoomDocument>);
@@ -15,4 +14,5 @@ export declare class RoomsService {
         message: string;
     }>;
     getAvailable(locationID: any): Query<RoomDocument[], RoomDocument>;
+    getAggregated(): import("mongoose").Aggregate<any[]>;
 }

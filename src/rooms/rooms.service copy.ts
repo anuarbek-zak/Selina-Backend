@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateRoomDto } from './dto/create-room.dto';
 import { UpdateRoomDto } from './dto/update-room.dto';
 import { Room, RoomDocument } from './entities/room.entity';
-import {Types, Query, Model } from 'mongoose';
+import {Types} from 'mongoose';
 
 @Injectable()
 export class RoomsService {
@@ -13,7 +14,7 @@ export class RoomsService {
     return 'This action adds a new room';
   }
 
-  async findAll(): Promise<Room[]> {
+  async findAll() {
     return this.roomModel.find().exec();
   }
 
@@ -40,11 +41,7 @@ export class RoomsService {
     }
   }
 
-  getAvailable(locationID): Query<RoomDocument[], RoomDocument>{
+  getAvailable(locationID) {
     return this.roomModel.find({locationID: locationID, bookedBy: null});
-  }
-
-  getAggregated() {
-    return this.roomModel.aggregate();
   }
 }
