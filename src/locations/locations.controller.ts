@@ -15,8 +15,8 @@ export class LocationsController {
 
   @Get()
   findAll(
-    @Query('sort') sort: string,
-    @Query('filter') filter: string,
+    @Query('sort') sort?: string,
+    @Query('filter') filter?: string,
   ): Promise<LocationDocument[]> {
     return this.locationsService.findAll(sort, filter);
   }
