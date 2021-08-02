@@ -4,7 +4,7 @@ import { UpdateLocationDto } from './dto/update-location.dto';
 import { Location, LocationDocument } from './entities/location.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { RoomsService } from 'src/rooms/rooms.service';
+import { RoomsService } from './../rooms/rooms.service';
   
 export type LocationWithCount = {
   count: number;

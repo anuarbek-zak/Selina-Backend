@@ -1,3 +1,4 @@
+import { RoomsService } from './../rooms/rooms.service';
 import { Test, TestingModule } from '@nestjs/testing';
 import { Location, LocationDocument } from './entities/location.entity';
 import { LocationsService } from './locations.service';
@@ -17,6 +18,12 @@ describe('LocationsService', () => {
           provide: getModelToken(Location.name),
           useValue: {
             find: jest.fn().mockResolvedValue(locationsStub()),
+          }
+        },
+        {
+          provide: RoomsService,
+          useValue: {
+            aggregate: jest.fn().mockResolvedValue([]),
           }
         }
       ],
