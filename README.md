@@ -1,9 +1,9 @@
 
-## Welcome to my Nest.js (Mongo, Mongoose) project for Selina HW!
+# Welcome to my Nest.js (Mongo, Mongoose) project for Selina HW!
 
 DEMO[https://selina-backend.herokuapp.com/]
 
-# What was implemented:
+## What was implemented:
 
 - Create data model and database
 - Create RESTful API services with endpoints supporting:
@@ -24,7 +24,7 @@ of rooms booked
 example: surf lesson, jungle trekking, etc), adjust the data model and API
 accordingly (assume no limit in availability of an activity)
 
-## API
+### API
 
 # Locations
 ```https://selina-backend.herokuapp.com/locations``` - list of all locations
@@ -37,13 +37,13 @@ accordingly (assume no limit in availability of an activity)
 
 ```https://selina-backend.herokuapp.com/rooms``` - list of rooms
 
-# Room types
+## Room types
 ```https://selina-backend.herokuapp.com/room-types``` - list of all room types
 
 ```https://selina-backend.herokuapp.com/room-types/available?locationID``` - list of available room types by location id
 
 
-# Rooms
+## Rooms
 ```https://selina-backend.herokuapp.com/rooms``` - list of available rooms by location id
 
 ```https://selina-backend.herokuapp.com/rooms/available?locationID``` - list of available rooms by location id
@@ -52,12 +52,12 @@ accordingly (assume no limit in availability of an activity)
 
 
 
-# Activities
+## Activities
 ```https://selina-backend.herokuapp.com/activities``` - list of activities
 
 ```https://selina-backend.herokuapp.com/activities/:id``` - book activities
 
-# Unit tests
+## Unit tests
 Implemented unit test for Locations resource. Run ```npm run test locations.controller``` and ```npm run test locations.service``` to check tests.
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
