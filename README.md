@@ -1,7 +1,7 @@
 
 # Welcome to my Nest.js (Mongo, Mongoose) project for Selina HW!
 
-DEMO[https://selina-backend.herokuapp.com/]
+[DEMO](https://selina-backend.herokuapp.com/)
 
 ## What was implemented:
 
