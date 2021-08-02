@@ -1,6 +1,64 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+
+## Welcome to my Nest.js (Mongo, Mongoose) project for Selina HW!
+
+DEMO[https://selina-backend.herokuapp.com/]
+
+# What was implemented:
+
+- Create data model and database
+- Create RESTful API services with endpoints supporting:
+- Show list of Selina locations
+- Show available room types for a specific location
+- Create room booking
+- Every location has 3 room types (Dorm, Private, Deluxe), with 10 rooms of each type
+- Implement algorithm to determine room type availability
+- Add some unit tests
+- Added migration file for data initialization
+- Deployed to Heroku
+
+And also all bonus tasks:
+- 1: support ordering & filtering the list of locations by country
+- 2: create an API endpoint that shows the top 3 of locations based on the number
+of rooms booked
+- 3: imagine that a location also has a list of activities that are bookable (for
+example: surf lesson, jungle trekking, etc), adjust the data model and API
+accordingly (assume no limit in availability of an activity)
+
+## API
+
+# Locations
+```https://selina-backend.herokuapp.com/locations``` - list of all locations
+
+```https://selina-backend.herokuapp.com/locations?filter=Mexico``` - filter locations by country
+
+```https://selina-backend.herokuapp.com/locations?sort=asc``` - sort locations by country
+
+```https://selina-backend.herokuapp.com/locations/top-three``` - list of top 3 locations
+
+```https://selina-backend.herokuapp.com/rooms``` - list of rooms
+
+# Room types
+```https://selina-backend.herokuapp.com/room-types``` - list of all room types
+
+```https://selina-backend.herokuapp.com/room-types/available?locationID``` - list of available room types by location id
+
+
+# Rooms
+```https://selina-backend.herokuapp.com/rooms``` - list of available rooms by location id
+
+```https://selina-backend.herokuapp.com/rooms/available?locationID``` - list of available rooms by location id
+
+```https://selina-backend.herokuapp.com/rooms/:id``` - book room
+
+
+
+# Activities
+```https://selina-backend.herokuapp.com/activities``` - list of activities
+
+```https://selina-backend.herokuapp.com/activities/:id``` - book activities
+
+# Unit tests
+Implemented unit test for Locations resource. Run ```npm run test locations.controller``` and ```npm run test locations.service``` to check tests.
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
