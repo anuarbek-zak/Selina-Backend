@@ -3,6 +3,8 @@
 
 [DEMO](https://selina-backend.herokuapp.com/)
 
+Front-end HW [here](https://github.com/anuarbek-zak/Selina-FrontEnd)
+
 ## What was implemented:
 
 - Create data model and database
