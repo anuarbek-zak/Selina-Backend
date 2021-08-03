@@ -24,7 +24,7 @@ of rooms booked
 example: surf lesson, jungle trekking, etc), adjust the data model and API
 accordingly (assume no limit in availability of an activity)
 
-### API
+# API
 
 # Locations
 ```https://selina-backend.herokuapp.com/locations``` - list of all locations
@@ -48,17 +48,19 @@ accordingly (assume no limit in availability of an activity)
 
 ```https://selina-backend.herokuapp.com/rooms/available?locationID``` - list of available rooms by location id
 
-```https://selina-backend.herokuapp.com/rooms/:id``` - book room
+```https://selina-backend.herokuapp.com/rooms/book/:id``` - book room
 
 
 
 ## Activities
 ```https://selina-backend.herokuapp.com/activities``` - list of activities
 
-```https://selina-backend.herokuapp.com/activities/:id``` - book activities
+```https://selina-backend.herokuapp.com/activities/book/:id``` - book activities
 
 ## Unit tests
 Implemented unit test for Locations resource. Run ```npm run test locations.controller``` and ```npm run test locations.service``` to check tests.
+
+
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
